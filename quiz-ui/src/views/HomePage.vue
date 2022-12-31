@@ -6,7 +6,6 @@
     <img src="/src/assets/logo.png" alt="logo">
   </div>
 
-
   <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
     {{ scoreEntry }}
   </div>
