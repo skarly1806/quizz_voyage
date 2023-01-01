@@ -4,8 +4,7 @@
 <template>
   <h1>Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
   <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
-  {{ currentQuestion.questionTitle }}
-  {{ currentQuestion.questionTitle }}
+
 
   <hr />
 
@@ -27,7 +26,7 @@ export default {
       currentQuestion: {
         questionTitle: "testtitle",
         questionText: "testtext",
-        possibleAnswers: [],
+        possibleAnswers: ["rep1", "rep2", "rep3", "rep4"],
       },
       currentQuestionPosition: 1,
       list: [],
