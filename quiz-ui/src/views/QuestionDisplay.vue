@@ -6,13 +6,12 @@
 
   <img v-if="question.image" :src="question.image" />
 
-
-  {{ question.tile }}
-  {{ question.answer1 }}
-  <a @click="$emit('click-on-answer', 1)">La réponse A</a>
-  <a @click="$emit('click-on-answer', 2)">La réponse B</a>
-  <a @click="$emit('click-on-answer', 3)">La réponse C</a>
-  <a @click="$emit('click-on-answer', 4)">La réponse D</a>
+  {{ question.questionTitle }}
+  {{ question.questionText }}
+  {{ question.possibleAnswers[1] }}
+  {{ question.possibleAnswers[2] }}
+  {{ question.possibleAnswers[3] }}
+  {{ question.possibleAnswers[4] }}
 
 </template>
 

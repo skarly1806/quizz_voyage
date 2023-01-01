@@ -34,21 +34,21 @@ export default {
     return this.call("get", "questions?position=" + position);
   },
   getQuestion(id) {
-    //implements
+    return this.call("get", "questions/" + id);
   },
-  updateQuestion() {
-    //implements
+  updateQuestion(id) {
+    return this.call("put", "questions/" + id);
   },
   login() {
     //implements
   },
   addQuestion() {
-    //implements
+    return this.call("post", "questions");
   },
-  deleteQuestion() {
-    //implements
+  deleteQuestion(id) {
+    return this.call("delete", "questions/" + id);
   },
   deleteAllQuestion() {
-    //implements
+    return this.call("delete", "questions/all");
   }
 };

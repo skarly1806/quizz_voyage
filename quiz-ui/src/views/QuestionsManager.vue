@@ -5,9 +5,7 @@
   <h1>Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
   <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
 
-  <QuestionDisplay @answer-selected="tickHandler"></QuestionDisplay>
   <hr />
-  {{ AnswerValue }}
 
 </template>
 
@@ -38,7 +36,7 @@ export default {
       this.list.push(this.value);
       currentQuestionPosition = currentQuestionPosition + 1;
       this.currentQuestion = loadQuestionByPosition(currentQuestionPosition);
-      this.$router.push;
+      this.$router.push('/QuestionsManager');
     },
     loadQuestionByPosition(currentQuestionPosition) {
       var questionByPosition = quizApiService.getQuestion(currentQuestionPosition);
