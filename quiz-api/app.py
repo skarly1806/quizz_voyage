@@ -69,6 +69,7 @@ def postQuestion() :
 		possibleAnswers = payload['possibleAnswers']
 
 		quest = Question(title,text,position,image,possibleAnswers)
+		print("test")
 		quest.recordQuestion()
 
 		return payload,200
