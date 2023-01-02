@@ -13,5 +13,11 @@ export default {
   },
   getParticipationScore() {
     window.localStorage.getItem("participationScore");
+  },
+  saveList(list) {
+    window.localStorage.setItem("list", list);
+  },
+  getList() {
+    window.localStorage.getItem("list");
   }
 };
