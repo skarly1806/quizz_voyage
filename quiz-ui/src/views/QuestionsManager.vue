@@ -3,8 +3,10 @@
 
 <template>
   <h1>Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
-  <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
-
+  <div>
+    <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
+  </div>
+  {{ currentQuestion.text }}
 
   <hr />
 
@@ -24,8 +26,10 @@ export default {
       AnswerValue: "No Answer yet",
       totalNumberOfQuestion: 10,
       currentQuestion: {
-        questionTitle: "testtitle",
-        questionText: "testtext",
+        image: "",
+        position: "",
+        text: "testtext",
+        title: "testtitle",
         possibleAnswers: ["rep1", "rep2", "rep3", "rep4"],
       },
       currentQuestionPosition: 1,
@@ -35,13 +39,13 @@ export default {
   methods: {
     answerClickedHandler(value) {
       this.list.push(this.value);
-      currentQuestionPosition = currentQuestionPosition + 1;
+      this.currentQuestionPosition = this.currentQuestionPosition + 1;
       this.currentQuestion = loadQuestionByPosition(currentQuestionPosition);
       this.$router.push('/QuestionsManager');
     },
     loadQuestionByPosition(currentQuestionPosition) {
-      var questionByPosition = quizApiService.getQuestion(currentQuestionPosition);
-      return currentQuestion = questionByPosition.data;
+      var questionByPosition = quizApiService.getQuestionByPos(this.currentQuestionPosition);
+      return this.currentQuestion = questionByPosition.data;
     },
     endQuiz() {
       //push resultat;
@@ -49,8 +53,9 @@ export default {
   },
   components: { QuestionDisplay },
   async created() {
-    var questionByPosition = await quizApiService.getQuestion(currentQuestionPosition);
+    var questionByPosition = await quizApiService.getQuestionByPos(this.currentQuestionPosition);
     this.currentQuestion = questionByPosition.data;
+
 
   }
 };

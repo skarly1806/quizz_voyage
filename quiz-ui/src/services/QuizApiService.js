@@ -30,10 +30,10 @@ export default {
   getQuizInfo() {
     return this.call("get", "quiz-info");
   },
-  getQuestion(position) {
+  getQuestionByPos(position) {
     return this.call("get", "questions?position=" + position);
   },
-  getQuestion(id) {
+  getQuestionById(id) {
     return this.call("get", "questions/" + id);
   },
   updateQuestion(id) {
