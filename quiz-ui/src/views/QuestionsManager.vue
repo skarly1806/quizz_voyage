@@ -37,17 +37,18 @@ export default {
     };
   },
   methods: {
-    answerClickedHandler(value) {
+    async answerClickedHandler(value) {
       this.list.push(this.value);
       this.currentQuestionPosition = this.currentQuestionPosition + 1;
-      this.currentQuestion = loadQuestionByPosition(currentQuestionPosition);
-      this.$router.push('/QuestionsManager');
+      this.currentQuestion = await this.loadQuestionByPosition(this.currentQuestionPosition);
     },
-    loadQuestionByPosition(currentQuestionPosition) {
-      var questionByPosition = quizApiService.getQuestionByPos(this.currentQuestionPosition);
+    async loadQuestionByPosition(currentQuestionPosition) {
+      var questionByPosition = await quizApiService.getQuestionByPos(this.currentQuestionPosition);
       return this.currentQuestion = questionByPosition.data;
     },
     endQuiz() {
+      const storelist = JSON.stringify(this.list);
+
       //push resultat;
     },
   },
