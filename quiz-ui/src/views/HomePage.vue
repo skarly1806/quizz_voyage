@@ -84,6 +84,7 @@ body {
 
 .wrapper {
   display: flex;
+  left: 160px;
   justify-content: center;
 }
 
