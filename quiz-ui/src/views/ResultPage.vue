@@ -28,7 +28,8 @@ export default {
   },
   methods: {
     launchNewQuiz() {
-
+      var participe = quizApiService.postParticipation();
+      this.currentQuestion = questionByPosition.data;
     },
   },
   async created() {

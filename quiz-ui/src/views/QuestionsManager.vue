@@ -71,8 +71,7 @@ export default {
     async endQuiz() {
       const storelist = JSON.stringify(this.list);
       participationStorageService.saveList(storelist);
-      var participe = await quizApiService.postParticipation();
-      this.currentQuestion = questionByPosition.data;
+
       this.$router.push('/ResultPage');
     },
 
