@@ -6,7 +6,7 @@
     <img src="/src/assets/logo.png" alt="logo">
   </div>
   <div>
-    Rsultpage
+    <h1>{{ playerName }}</h1>
   </div>
 
   <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
@@ -39,7 +39,7 @@ export default {
   async created() {
     var quizInfoApiResult = await quizApiService.getQuizInfo();
     this.registeredScores = quizInfoApiResult.data.scores;
-    console.log("Composant Home page 'created'");
+    this.playerName = await this.participationStorageService.getPlayerName();
   }
 };
 </script>

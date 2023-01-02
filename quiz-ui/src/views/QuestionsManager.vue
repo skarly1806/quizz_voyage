@@ -50,9 +50,9 @@ export default {
       currentQuestion: {
         image: "",
         position: "",
-        text: "testtext",
-        title: "testtitle",
-        possibleAnswers: ["rep1", "rep2", "rep3", "rep4"],
+        text: "",
+        title: "",
+        possibleAnswers: ["", "", "", ""],
       },
       currentQuestionPosition: 1,
       list: [],
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     async answerClickedHandler(value) {
-      this.list.push(this.value);
+      this.list.push(value);
       this.currentQuestionPosition = this.currentQuestionPosition + 1;
       this.currentQuestion = await this.loadQuestionByPosition(this.currentQuestionPosition);
     },
