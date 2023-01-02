@@ -5,9 +5,11 @@
   <div>
     <img src="/src/assets/logo.png" alt="logo">
   </div>
-  Voici votre score {{ player }} :
-  {{ list }}
-  <div>liste result : {{ resultats }} ::{{ resultats.scores }} </div>
+  Voici votre score {{ player }} : {{ list }}
+  <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
+    liste result : {{ scoreEntry["playerName"] }} ::{{ scoreEntry["score"] }}
+  </div>
+  {{ resultats }}
 
 </template>
 
@@ -23,20 +25,21 @@ export default {
     return {
       list: [],
       player: "",
-      resultats: [],
+      registeredScores: [],
+      resultatJsonAPush: [],
     };
   },
   methods: {
-    launchNewQuiz() {
-      var participe = quizApiService.postParticipation();
-      this.currentQuestion = questionByPosition.data;
+    postparti() {
+      //this.resultatJsonAPush = [player, list];
+      //var participe = quizApiService.postParticipation();
     },
   },
   async created() {
     this.list = participationStorageService.getList();
     this.player = participationStorageService.getPlayerName();
     var quizInfoApiResult = await quizApiService.getQuizInfo();
-    this.resultats = quizInfoApiResult.data.scores;
+    this.registeredScores = quizInfoApiResult.data.scores;
 
   }
 }
