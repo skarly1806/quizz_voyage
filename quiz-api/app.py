@@ -28,16 +28,16 @@ def hello_world():
 @app.route('/quiz-info', methods=['GET'])
 def GetQuizInfo():
 
-	#size = getNumberOfQuestion()
+	size = getNumberOfQuestion()
 
-	#scores = getScores()
+	scores = getScores()
 
-	#sortedScores = sorted(scores, key=itemgetter('score'), reverse=True)   
+	sortedScores = sorted(scores, key=itemgetter('score'), reverse=True)   
 
-	#info = {"size": size, "scores": sortedScores}
+	info = {"size": size, "scores": sortedScores}
 
-	return {"size": 0, "scores": [20,30,40]}, 200
-	#return info,200
+	#return {"size": 0, "scores": [20,30,40]}, 200
+	return info,200
 
 @app.route('/login', methods=['POST'])
 def login():

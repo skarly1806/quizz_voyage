@@ -50,7 +50,8 @@ export default {
   },
   methods: {
     launchNewQuiz() {
-      participationStorageService.savePlayerName(this.username);
+      const player = JSON.stringify(this.username);
+      participationStorageService.savePlayerName(player);
       this.$router.push('/QuestionsManager');
     },
   },
