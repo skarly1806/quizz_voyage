@@ -68,9 +68,11 @@ export default {
       var questionByPosition = await quizApiService.getQuestionByPos(this.currentQuestionPosition);
       return this.currentQuestion = questionByPosition.data;
     },
-    endQuiz() {
+    async endQuiz() {
       const storelist = JSON.stringify(this.list);
-      participationStorageService.saveList(this.list);
+      participationStorageService.saveList(storelist);
+      var participe = await quizApiService.postParticipation();
+      this.currentQuestion = questionByPosition.data;
       this.$router.push('/ResultPage');
     },
 

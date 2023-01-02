@@ -6,18 +6,18 @@ export default {
     window.localStorage.setItem("playerName", playerName);
   },
   getPlayerName() {
-    window.localStorage.getItem("playerName");
+    return window.localStorage.getItem("playerName");
   },
   saveParticipationScore(participationScore) {
-    window.localStorage.setItem("participationScore", participationScore);
+    window.localStorage.setItem('participationScore', participationScore);
   },
   getParticipationScore() {
-    window.localStorage.getItem("participationScore");
+    return window.localStorage.getItem('participationScore');
   },
   saveList(list) {
-    window.localStorage.setItem("list", list);
+    window.localStorage.setItem('list', list);
   },
   getList() {
-    window.localStorage.getItem("list");
+    return window.localStorage.getItem('list');
   }
 };

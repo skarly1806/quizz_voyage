@@ -48,6 +48,9 @@ export default {
   deleteQuestion(id) {
     return this.call("delete", "questions/" + id);
   },
+  postParticipation() {
+    return this.call("post", "participations/");
+  },
   deleteAllQuestion() {
     return this.call("delete", "questions/all");
   }

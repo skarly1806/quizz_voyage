@@ -5,21 +5,15 @@
   <div>
     <img src="/src/assets/logo.png" alt="logo">
   </div>
-  <div>
-    <h1>{{ playerName }}</h1>
-  </div>
-
-  <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
-    {{ scoreEntry }}
-  </div>
-
-
-  <div></div>
+  Voici votre score {{ player }} :
+  {{ list }}
+  <div>liste result : {{ resultats }} ::{{ resultats.scores }} </div>
 
 </template>
 
 <script>
 import quizApiService from "@/services/QuizApiService";
+import participationStorageService from "@/services/ParticipationStorageService";
 
 
 
@@ -28,20 +22,23 @@ export default {
   data() {
     return {
       list: [],
-      playerName: "",
+      player: "",
+      resultats: [],
     };
   },
   methods: {
     launchNewQuiz() {
-      this.$router.push('/start-new-quiz-page');
+
     },
   },
   async created() {
+    this.list = participationStorageService.getList();
+    this.player = participationStorageService.getPlayerName();
     var quizInfoApiResult = await quizApiService.getQuizInfo();
-    this.registeredScores = quizInfoApiResult.data.scores;
-    this.playerName = await this.participationStorageService.getPlayerName();
+    this.resultats = quizInfoApiResult.data.scores;
+
   }
-};
+}
 </script>
 
 <style>
