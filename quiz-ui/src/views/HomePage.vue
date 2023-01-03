@@ -55,22 +55,26 @@
 
 <script>
 import quizApiService from "@/services/QuizApiService";
+import participationStorageService from "../services/ParticipationStorageService";
 
 export default {
   name: "HomePage",
   data() {
     return {
       registeredScores: [],
-      password: '',
-      token: '',
+      password: "",
     };
   },
   methods: {
     launchNewQuiz() {
       this.$router.push('/start-new-quiz-page');
     },
-    launchAdminPage() {
-      this.$router.push('/admin-page');
+    async launchAdminPage() {
+      // var login_res = await quizApiService.login(this.password);
+      // participationStorageService.saveToken(login_res.data.token);
+      // console.log(login_res.data.token);
+      participationStorageService.savePassword(this.password);
+      this.$router.push('/AdminPage');
     },
   },
   async created() {

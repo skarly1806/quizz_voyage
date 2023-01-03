@@ -41,7 +41,7 @@ def GetQuizInfo():
 
 @app.route('/login', methods=['POST'])
 def login():
-	payload = request.get_json()
+	payload = request.get_json()	
 
 	if payload['password'] == 'flask2023':
 		token = build_token()

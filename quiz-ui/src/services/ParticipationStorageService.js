@@ -19,5 +19,17 @@ export default {
   },
   getList() {
     return window.localStorage.getItem('list');
+  },
+  saveToken(token) {
+    window.localStorage.setItem('token', token);
+  },
+  getToken() {
+    return window.localStorage.getItem('token');
+  },
+  savePassword(password) {
+    window.localStorage.setItem('password', password);
+  },
+  getPassword() {
+    return window.localStorage.getItem('password');
   }
 };
