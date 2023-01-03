@@ -40,8 +40,8 @@ export default {
   updateQuestion(id) {
     return this.call("put", "questions/" + id);
   },
-  login() {
-    //implements
+  login(password) {
+    return this.call("post", "login", { "password": password });
   },
   addQuestion() {
     return this.call("post", "questions");
@@ -57,5 +57,11 @@ export default {
   },
   deleteAllParticipation() {
     return this.call("delete", "participations/all");
+  },
+  saveToken(token) {
+    window.localStorage.setItem('token', token);
+  },
+  getToken() {
+    return window.localStorage.getItem('token');
   }
 };

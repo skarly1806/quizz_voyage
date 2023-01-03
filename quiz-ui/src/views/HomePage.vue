@@ -20,8 +20,8 @@
 
     <div class="login">
       <input type="login_inp" v-model="password" />
-      <span @click="launchNewQuiz">Login</span>
-      <span @click="launchNewQuiz">
+      <span @click="launchAdminPage">Login</span>
+      <span @click="launchAdminPage">
       </span>
     </div>
 
@@ -61,11 +61,16 @@ export default {
   data() {
     return {
       registeredScores: [],
+      password: '',
+      token: '',
     };
   },
   methods: {
     launchNewQuiz() {
       this.$router.push('/start-new-quiz-page');
+    },
+    launchAdminPage() {
+      this.$router.push('/admin-page');
     },
   },
   async created() {
