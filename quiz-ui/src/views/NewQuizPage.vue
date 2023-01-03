@@ -6,7 +6,8 @@
     <img src="/src/assets/logo.png" alt="logo">
     <p class="quest"> Saisissez votre nom :</p>
     <input type="text" v-model="username" />
-    <div class="wrapper">
+    <div class="wrapper" style="left: 34%;
+  top: 25%;">
       <a class="cta" href="#">
         <span @click="launchNewQuiz">Go !</span>
         <span @click="launchNewQuiz">
@@ -49,7 +50,7 @@ export default {
   },
   methods: {
     launchNewQuiz() {
-      const player = JSON.stringify(this.username);
+      const player = this.username;
       participationStorageService.savePlayerName(player);
       this.$router.push('/QuestionsManager');
     },
@@ -64,19 +65,22 @@ export default {
 <style>
 .quest {
   margin-left: 525px;
+  left: 15%;
+  top: 25%;
 }
 
 img {
   display: block;
-  margin-left: 350px;
-  margin-right: auto;
-  margin-top: -200px;
+  left: 15%;
+  top: 25%;
 }
 
 input[type=text] {
   border: 3px solid rgb(145, 197, 220);
   margin-left: 500px;
   margin-bottom: 20px;
+  left: 15%;
+  top: 25%;
 }
 
 input[type=text]:focus {

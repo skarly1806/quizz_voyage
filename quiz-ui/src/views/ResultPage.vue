@@ -3,12 +3,27 @@
  
 <template>
   <div>
-    <img src="/src/assets/logo.png" alt="logo">
+    <img src="/src/assets/logo.png" alt="logo" style="top:50%;">
   </div>
-  Voici votre score {{ player }} : {{ list }}
-  <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
+  <div>Voici votre score {{ player }} : {{ list }}</div>
+
+  <!-- <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
     liste result : {{ scoreEntry["playerName"] }} ::{{ scoreEntry["score"] }}
-  </div>
+  </div> -->
+  <table id="customers" class="relative" style="top:-80%; left:10%;">
+    <thead>
+      <tr>
+        <th>Player Name</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="unit in registeredScores" :key="unit.id">
+        <td>{{ unit["playerName"] }}</td>
+        <td>{{ unit["score"] }}</td>
+      </tr>
+    </tbody>
+  </table>
   {{ resultats }}
 
 </template>
@@ -51,5 +66,6 @@ img {
   margin-left: 350px;
   margin-right: auto;
   margin-top: -200px;
+
 }
 </style>

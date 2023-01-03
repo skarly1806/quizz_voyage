@@ -1,4 +1,5 @@
 import axios from "axios";
+import ParticipationStorageService from "./ParticipationStorageService";
 
 const instance = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL}`,
@@ -48,10 +49,13 @@ export default {
   deleteQuestion(id) {
     return this.call("delete", "questions/" + id);
   },
-  postParticipation() {
-    return this.call("post", "participations/");
+  postParticipation(part) {
+    return this.call("post", "participations", part);
   },
   deleteAllQuestion() {
     return this.call("delete", "questions/all");
+  },
+  deleteAllParticipation() {
+    return this.call("delete", "participations/all");
   }
 };

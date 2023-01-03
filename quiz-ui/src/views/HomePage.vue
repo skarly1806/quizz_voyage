@@ -18,10 +18,12 @@
       </tbody>
     </table>
 
-
-    <!-- <div>
-      <img src="/src/assets/logo.png" alt="logo">
-    </div> -->
+    <div class="login">
+      <input type="login_inp" v-model="password" />
+      <span @click="launchNewQuiz">Login</span>
+      <span @click="launchNewQuiz">
+      </span>
+    </div>
 
     <div class="container">
       <div class="wrapperHome">
@@ -49,7 +51,6 @@
 
 
   </div>
-
 </template>
 
 <script>
@@ -99,6 +100,20 @@ div.container {
 
 * {
   box-sizing: border-box;
+}
+
+.login_inp {
+  right: 10%;
+}
+
+.login_text {
+  right: 80%;
+}
+
+.login {
+  margin-left: 525px;
+  left: 15%;
+  top: -42%;
 }
 
 body {

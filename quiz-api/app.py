@@ -152,7 +152,6 @@ def postParticipation() :
 	payload = request.get_json()
 	playerName = payload['playerName']
 	answers = payload['answers']
-
 	score,status = calculateScore(answers)
 
 	partJ ="Couldn't register participation"
@@ -178,7 +177,6 @@ def deleteAllParticipations():
 		return 'Deleted',204
 	except:
 		return 'Unauthorized',401
-
 
 if __name__ == "__main__":
     app.run()

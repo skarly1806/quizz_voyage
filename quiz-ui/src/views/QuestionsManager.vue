@@ -3,7 +3,7 @@
 
 <template>
   <h1>Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
-  <div>
+  <div class="img_quest">
     <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
   </div>
 
@@ -56,13 +56,25 @@ export default {
       },
       currentQuestionPosition: 1,
       list: [],
+      lastQuestion: 0,
     };
   },
   methods: {
     async answerClickedHandler(value) {
-      this.list.push(value);
-      this.currentQuestionPosition = this.currentQuestionPosition + 1;
-      this.currentQuestion = await this.loadQuestionByPosition(this.currentQuestionPosition);
+
+      if (this.currentQuestionPosition + 1 <= this.totalNumberOfQuestion) {
+        this.list.push(value);
+        this.currentQuestionPosition = this.currentQuestionPosition + 1;
+        this.currentQuestion = await this.loadQuestionByPosition(this.currentQuestionPosition);
+      }
+
+      if (this.currentQuestionPosition == this.totalNumberOfQuestion) {
+        if (this.lastQuestion == 0) {
+          this.list.push(value);
+          this.lastQuestion = 1;
+        }
+      }
+
     },
     async loadQuestionByPosition(currentQuestionPosition) {
       var questionByPosition = await quizApiService.getQuestionByPos(this.currentQuestionPosition);
@@ -71,7 +83,11 @@ export default {
     async endQuiz() {
       const storelist = JSON.stringify(this.list);
       participationStorageService.saveList(storelist);
-
+      const playerName = participationStorageService.getPlayerName();
+      const playerName2 = playerName.replace('"', "");
+      const part = { "playerName": playerName2, "answers": this.list };
+      console.log(part);
+      await quizApiService.postParticipation(part);
       this.$router.push('/ResultPage');
     },
 
@@ -148,7 +164,13 @@ span:nth-child(2) {
   top: 12%;
 }
 
+.img_quest {
+  right: 70%;
+  top: 40%;
+}
+
 /**************SVG****************/
+
 
 path.one {
   transition: 0.4s;
