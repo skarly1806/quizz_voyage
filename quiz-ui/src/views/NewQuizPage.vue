@@ -6,7 +6,6 @@
     <img src="/src/assets/logo.png" alt="logo">
     <p class="quest"> Saisissez votre nom :</p>
     <input type="text" v-model="username" />
-    <p>{{ username }}</p>
     <div class="wrapper">
       <a class="cta" href="#">
         <span @click="launchNewQuiz">Go !</span>
@@ -63,24 +62,6 @@ export default {
 </script>
 
 <style>
-.but {
-  background-color: #b0efb2;
-  text-align: center;
-  color: white;
-  margin-top: 10px;
-  margin-left: 540px;
-  border-radius: 4px;
-  padding: 14px 40px;
-  border: none;
-  transition-duration: 0.4s;
-}
-
-.but:hover {
-  border: 2px solid #b0efb2;
-  background-color: #ffffff;
-  color: black;
-}
-
 .quest {
   margin-left: 525px;
 }
@@ -95,6 +76,7 @@ img {
 input[type=text] {
   border: 3px solid rgb(145, 197, 220);
   margin-left: 500px;
+  margin-bottom: 20px;
 }
 
 input[type=text]:focus {
