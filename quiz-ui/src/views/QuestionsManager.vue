@@ -81,14 +81,17 @@ export default {
       return this.currentQuestion = questionByPosition.data;
     },
     async endQuiz() {
-      const storelist = JSON.stringify(this.list);
-      participationStorageService.saveList(storelist);
-      const playerName = participationStorageService.getPlayerName();
-      const playerName2 = playerName.replace('"', "");
-      const part = { "playerName": playerName2, "answers": this.list };
-      console.log(part);
-      await quizApiService.postParticipation(part);
-      this.$router.push('/ResultPage');
+      if (this.list.length == this.currentQuestionPosition) {
+        // const storelist = JSON.stringify(this.list);
+        participationStorageService.saveList(this.list);
+        const playerName = participationStorageService.getPlayerName();
+        const playerName2 = playerName.replace('"', "");
+        const part = { "playerName": playerName2, "answers": this.list };
+        console.log(part);
+        await quizApiService.postParticipation(part);
+        this.$router.push('/ResultPage');
+      }
+
     },
 
   },
@@ -132,6 +135,9 @@ body {
   transition: 1s;
   box-shadow: 6px 6px 0 #b0efb2;
   transform: skewX(-15deg);
+  bottom: 10px;
+  left: 700px;
+  height: 90px;
 }
 
 .cta:focus {
@@ -168,6 +174,8 @@ span:nth-child(2) {
   right: 70%;
   top: 40%;
 }
+
+
 
 /**************SVG****************/
 

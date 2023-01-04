@@ -4,11 +4,11 @@
 <template>
   <div>
     <img src="/src/assets/logo.png" alt="logo">
-    <p class="quest"> Saisissez votre nom :</p>
-    <input type="text" v-model="username" />
+    <p class="name"> Saisissez votre nom :</p>
+    <input class="inp" v-model="username" />
     <div class="wrapper" style="left: 34%;
   top: 25%;">
-      <a class="cta" href="#">
+      <a class="cta" href="#" style="left:-40px;top:5px;">
         <span @click="launchNewQuiz">Go !</span>
         <span @click="launchNewQuiz">
           <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -67,6 +67,30 @@ export default {
   margin-left: 525px;
   left: 15%;
   top: 25%;
+}
+
+.name {
+  width: 400px;
+  margin-left: 525px;
+  left: 2%;
+  top: 25%;
+  font-size: 35px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 2px rgb(59, 234, 62), 0 0 1em rgb(129, 218, 104), 0 0 0.2em rgb(28, 231, 58);
+  color: white;
+}
+
+.inp {
+  width: 400px;
+  height: 50px;
+  border: 3px solid rgb(145, 197, 220);
+  margin-left: 500px;
+  margin-bottom: 20px;
+  left: 5%;
+  top: 25%;
+  font-size: 25px;
+  text-align: center;
 }
 
 img {

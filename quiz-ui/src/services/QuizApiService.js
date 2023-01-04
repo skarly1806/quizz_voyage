@@ -43,8 +43,8 @@ export default {
   login(password) {
     return this.call("post", "login", { "password": password });
   },
-  addQuestion() {
-    return this.call("post", "questions");
+  addQuestion(question, token) {
+    return this.call("post", "questions", question, token);
   },
   deleteQuestion(id) {
     return this.call("delete", "questions/" + id);
@@ -58,10 +58,7 @@ export default {
   deleteAllParticipation() {
     return this.call("delete", "participations/all");
   },
-  saveToken(token) {
-    window.localStorage.setItem('token', token);
-  },
-  getToken() {
-    return window.localStorage.getItem('token');
+  getScore() {
+    return this.call("get", "participationsScore");
   }
 };

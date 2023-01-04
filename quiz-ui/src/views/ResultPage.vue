@@ -5,7 +5,12 @@
   <div>
     <img src="/src/assets/logo.png" alt="logo" style="top:50%;">
   </div>
-  <div>Voici votre score {{ player }} : {{ list }}</div>
+
+  <div class="borderScore">
+    <p class="textScore">Voici votre score <br><u>{{ player }}</u> : <font color="red">{{ score }}</font><br> {{ text }}
+    </p>
+  </div>
+
 
   <!-- <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
     liste result : {{ scoreEntry["playerName"] }} ::{{ scoreEntry["score"] }}
@@ -42,6 +47,8 @@ export default {
       player: "",
       registeredScores: [],
       resultatJsonAPush: [],
+      score: 0,
+      text: "",
     };
   },
   methods: {
@@ -49,13 +56,30 @@ export default {
       //this.resultatJsonAPush = [player, list];
       //var participe = quizApiService.postParticipation();
     },
+    message() {
+      if (this.score == 10) {
+        return "bravo bon toutou"
+      }
+      else if (this.score > 7) {
+        return "c'est ok genre"
+      }
+      else if (this.score < 8 && this.score > 4) {
+        return "c'est très moyen pour être honnête :/"
+      }
+      else {
+        return "la honte"
+      }
+    },
   },
   async created() {
     this.list = participationStorageService.getList();
     this.player = participationStorageService.getPlayerName();
     var quizInfoApiResult = await quizApiService.getQuizInfo();
     this.registeredScores = quizInfoApiResult.data.scores;
-
+    var playerScore = await quizApiService.getScore();
+    this.score = playerScore.data;
+    this.text = this.message();
+    console.log(this.text);
   }
 }
 </script>
@@ -67,5 +91,23 @@ img {
   margin-right: auto;
   margin-top: -200px;
 
+}
+
+.textScore {
+  top: 15%;
+  text-align: center;
+  width: 480px;
+  height: 150px;
+  font-size: 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.borderScore {
+  top: 140%;
+  right: 58%;
+  width: 490px;
+  height: 180px;
+  border-radius: 50% 20% / 10% 40%;
+  background-color: rgb(135, 204, 143);
 }
 </style>
