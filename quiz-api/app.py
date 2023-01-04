@@ -116,6 +116,7 @@ def getQuestionWithPosition():
 
 	return questi,status
 
+
 @app.route('/questions/<questionId>', methods=['GET'])
 def getQuestionWithId(questionId):
 
@@ -177,6 +178,14 @@ def deleteAllParticipations():
 		return 'Deleted',204
 	except:
 		return 'Unauthorized',401
+
+@app.route('/participationsScore', methods=['GET'])
+def getLastRegisteredScore():
+
+	score,status = getLastScore()	
+
+	return score,status
+
 
 if __name__ == "__main__":
     app.run()

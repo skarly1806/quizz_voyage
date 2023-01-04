@@ -3,31 +3,19 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light header">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <div class="nav-link">
-            <RouterLink to="/">Home</RouterLink>
-          </div>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white header">
+    <div class="navbar-collapse">
+      <div class="nav" style="right:-10px;">
+        <RouterLink to="/">Accueil</RouterLink>
+      </div>
+
       <ul class="collapse navbar-collapse justify-content-end">
-        <li class="nav-item">
-          <div class="nav-link" v-if="logged == false" :key="logged">
-            <RouterLink to="/Login">Login</RouterLink>
-          </div>
-          <div class="nav-link" v-else>
-            <RouterLink to="/AdminPage">Gestion Admin </RouterLink>
-          </div>
-        </li>
+        <div class="nav" style="top:10px;right:10px;">
+          <RouterLink to="/AdminPage">Admin</RouterLink>
+        </div>
       </ul>
     </div>
-  </nav> -->
+  </nav>
   <RouterView />
 </template> 
 
@@ -40,6 +28,20 @@ nav {
   left: 0;
   z-index: 9999;
   margin-bottom: 20px;
+  height: 35px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login_inp {
+  right: 10%;
+}
+
+.login_text {}
+
+.login {
+  margin-left: 525px;
+  left: 15%;
+  top: -42%;
 }
 
 /*header {

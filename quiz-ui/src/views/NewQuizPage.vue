@@ -3,7 +3,8 @@
 
 <template>
   <div>
-    <img src="/src/assets/logo.png" alt="logo">
+    <!-- <img src="/src/assets/banner.png" alt="logo" style="top:220px;"> -->
+    <img src="/src/assets/logo.png" alt="logo" style="top:220px;">
     <p class="name"> Saisissez votre nom :</p>
     <input class="inp" v-model="username" />
     <div class="wrapper" style="left: 34%;

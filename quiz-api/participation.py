@@ -47,8 +47,6 @@ def calculateScore(answers):
         return "Wrong number of answers",400    
     else:
         for i in range(len(answers)):
-            anton = answers[i]
-            right = rightAnswers[i]
             if answers[i] == rightAnswers[i]:
                 score = score +1 
 
@@ -99,3 +97,25 @@ def getScores():
     dbconnection.close()  
 
     return scores
+
+def getLastScore():
+    try:
+        dbconnection = sqlite3.connect('database.db')
+        dbconnection.isolation_level = None
+
+        request = "select count(*) from Participation"
+        cursor = dbconnection.execute(request)
+
+        for row in cursor:
+            numberOfParticipation = row[0]
+
+        request = "select score from Participation where id = "+str(numberOfParticipation)
+
+        cursor = dbconnection.execute(request)
+
+        for row in cursor :
+            score =  row[0]
+
+        return str(score),200
+    except:
+        return 'Question not found',404

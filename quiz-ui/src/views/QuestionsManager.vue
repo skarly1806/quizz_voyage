@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h1>Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
+  <h1 class="questionStatus">Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
   <div class="img_quest">
     <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
   </div>
@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       AnswerValue: "No Answer yet",
-      totalNumberOfQuestion: 10,
+      totalNumberOfQuestion: 0,
       currentQuestion: {
         image: "",
         position: "",
@@ -61,10 +61,10 @@ export default {
   },
   methods: {
     async answerClickedHandler(value) {
-
+      console.log(value);
       if (this.currentQuestionPosition + 1 <= this.totalNumberOfQuestion) {
         this.list.push(value);
-        this.currentQuestionPosition = this.currentQuestionPosition + 1;
+        this.currentQuestionPosition = await this.currentQuestionPosition + 1;
         this.currentQuestion = await this.loadQuestionByPosition(this.currentQuestionPosition);
       }
 
@@ -99,6 +99,8 @@ export default {
   async created() {
     var questionByPosition = await quizApiService.getQuestionByPos(this.currentQuestionPosition);
     this.currentQuestion = questionByPosition.data;
+    var totalQuestion = await quizApiService.getQuizInfo();
+    this.totalNumberOfQuestion = totalQuestion.data.size;
 
 
   }
@@ -116,6 +118,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.questionStatus {
+  top: 90px;
+  font-size: 25px;
+  display: inline-block;
+  padding: 10px;
+  background-color: white;
+  height: 50px;
+  width: 220px;
+  text-align: center;
 }
 
 .wrapper {

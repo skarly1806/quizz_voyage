@@ -460,9 +460,12 @@ def rightAnswer(position): #return correct answer by position
     i = 1
     for row in cursor:
         if row[0] == "True":
-            answer = i
+            answer = i-1
         i = i+1
         
+
+
+
     dbconnection.commit()
     dbconnection.close() 
 
