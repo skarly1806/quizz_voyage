@@ -7,6 +7,7 @@
   <div class="img_quest">
     <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
   </div>
+  <img class="fit-picture" src="../assets/logo_quest.png" size="">
 
 
   <!-- designed by me... enjoy! -->
@@ -113,6 +114,16 @@ export default {
 
 * {
   box-sizing: border-box;
+}
+
+.fit-picture {
+  position: absolute;
+  width: 24%;
+  height: 45%;
+  bottom: 2000vh;
+  margin-left: 850px;
+  margin-top: -100px;
+
 }
 
 .questionBorder {

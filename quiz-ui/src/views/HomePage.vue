@@ -111,6 +111,7 @@ export default {
   async created() {
     var quizInfoApiResult = await quizApiService.getQuizInfo();
     this.registeredScores = quizInfoApiResult.data.scores;
+    participationStorageService.clear();
     console.log("Composant Home page 'created'");
   }
 };

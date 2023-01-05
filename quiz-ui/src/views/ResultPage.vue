@@ -74,7 +74,6 @@ export default {
       else {
         return "la honte"
       }
-      participationStorageService.clear();
     },
   },
   async created() {

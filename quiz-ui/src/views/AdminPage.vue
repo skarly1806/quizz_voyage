@@ -64,8 +64,8 @@ export default {
   methods: {
     async loginAgain() {
       var login_result = await quizApiService.login(this.passwordInput);
-      //participationStorageService.saveToken(login_result.data.token);
-      //this.token = await participationStorageService.getToken();
+      participationStorageService.saveToken(login_result.data.token);
+      this.token = await participationStorageService.getToken();
     },
     imageFileChangedHandler(b64String) {
       this.questionImage = b64String;

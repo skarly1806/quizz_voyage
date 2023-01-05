@@ -1,6 +1,6 @@
 export default {
   clear() {
-    window.localStorage.clear();
+    return window.localStorage.clear();
   },
   savePlayerName(playerName) {
     window.localStorage.setItem("playerName", playerName);
