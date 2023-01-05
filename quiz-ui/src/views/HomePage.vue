@@ -24,15 +24,6 @@
     </div>
   </div>
 
-
-  <div class="login" style="top:-700%;">
-    <input type="login_inp" v-model="password" />
-    <span @click="launchAdminPage">Login</span>
-    <span @click="launchAdminPage">
-    </span>
-  </div>
-
-
   <div class="wrapperHome" style="left: 34%;
   top: 25%;">
     <a class="cta" href="#" style="left:-750px;top:-250px;">
@@ -111,6 +102,7 @@ export default {
   async created() {
     var quizInfoApiResult = await quizApiService.getQuizInfo();
     this.registeredScores = quizInfoApiResult.data.scores;
+    participationStorageService.clear();
     console.log("Composant Home page 'created'");
   }
 };

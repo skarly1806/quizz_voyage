@@ -43,3 +43,56 @@ a,
     padding: 0 2rem;
   }
 }
+
+@keyframes nuage {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.9);
+  }
+
+}
+
+.nuage {
+  animation-name: nuage;
+  animation-timing-function: linear;
+
+  transform-origin: bottom left;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+.rotate {
+  animation-name: rotate;
+  animation-timing-function: linear;
+
+  transform-origin: bottom left;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+.bounce {
+  animation-name: bounce;
+  animation-timing-function: linear;
+
+  transform-origin: bottom left;
+}

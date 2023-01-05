@@ -2,16 +2,22 @@
 </script>
 
 <template>
+  <div>
+    <div style="animation:nuage 8s linear infinite alternate-reverse;">
+      <img src="/src/assets/cloud.png" style="left:-300px; width: 320px; height:170px;margin-top:90px;">
+      <h1 class="questionStatus">Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
+    </div>
+    <div>
+      <img src="/src/assets/planet.png" style="left:-250px;top:37%;animation:rotate 35s linear infinite;">
+    </div>
+  </div>
 
-  <h1 class="questionStatus">Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
   <div class="img_quest">
     <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
   </div>
 
-
-  <!-- designed by me... enjoy! -->
   <div v-if="currentQuestionPosition == totalNumberOfQuestion" class="wrapper">
-    <a class="cta" href="#">
+    <a class="cta" href="#" style="top:-1000%;left:18%;">
       <span @click="endQuiz">Résultat !</span>
       <span @click="endQuiz">
         <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +69,6 @@ export default {
   },
   methods: {
     async answerClickedHandler(value) {
-      console.log(value);
       if (this.currentQuestionPosition + 1 <= this.totalNumberOfQuestion) {
         this.list.push(value);
         this.currentQuestionPosition = await this.currentQuestionPosition + 1;
@@ -116,7 +121,7 @@ export default {
 }
 
 .questionBorder {
-  top: 7%;
+  top: 5%;
   right: -34%;
   width: 535px;
   height: 655px;
@@ -132,7 +137,8 @@ body {
 }
 
 .questionStatus {
-  top: 90px;
+  top: -100px;
+  right: -100px;
   font-size: 25px;
   display: inline-block;
   padding: 10px;
@@ -195,8 +201,8 @@ span:nth-child(2) {
 }
 
 .img_quest {
-  right: 70%;
-  top: 40%;
+  right: 250%;
+  top: 13%;
 }
 
 

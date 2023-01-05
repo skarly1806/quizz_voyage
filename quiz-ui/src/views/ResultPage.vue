@@ -6,7 +6,7 @@
     <img src="/src/assets/logo.png" alt="logo" style="top:70%;">
   </div>
 
-  <div class="borderScore">
+  <div class="borderScore" style="animation:bounce 2s linear infinite alternate-reverse;">
     <p class="textScore">Voici votre score <br><u>{{ player }}</u> : <font color="red">{{ score }}</font><br> {{ text }}
     </p>
   </div>
@@ -63,7 +63,7 @@ export default {
     },
     message() {
       if (this.score == 10) {
-        return "bravo bon toutou"
+        return "bravo champion !"
       }
       else if (this.score > 7) {
         return "peut mieux faire"
