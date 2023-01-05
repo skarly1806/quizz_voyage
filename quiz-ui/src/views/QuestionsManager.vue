@@ -2,10 +2,12 @@
 </script>
 
 <template>
+
   <h1 class="questionStatus">Question {{ currentQuestionPosition }} / {{ totalNumberOfQuestion }}</h1>
   <div class="img_quest">
     <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
   </div>
+
 
   <!-- designed by me... enjoy! -->
   <div v-if="currentQuestionPosition == totalNumberOfQuestion" class="wrapper">
@@ -30,7 +32,7 @@
     </a>
   </div>
 
-  <hr />
+  <br />
 
 </template>
 
@@ -111,6 +113,15 @@ export default {
 
 * {
   box-sizing: border-box;
+}
+
+.questionBorder {
+  top: 7%;
+  right: -34%;
+  width: 535px;
+  height: 655px;
+  border-radius: 0.30rem;
+  background-color: rgb(255, 255, 255);
 }
 
 body {
