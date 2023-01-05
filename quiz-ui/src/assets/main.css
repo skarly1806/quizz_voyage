@@ -55,12 +55,6 @@ a,
 
 }
 
-.nuage {
-  animation-name: nuage;
-  animation-timing-function: linear;
-
-  transform-origin: bottom left;
-}
 
 @keyframes rotate {
   from {
@@ -73,13 +67,6 @@ a,
 
 }
 
-.rotate {
-  animation-name: rotate;
-  animation-timing-function: linear;
-
-  transform-origin: bottom left;
-}
-
 @keyframes bounce {
   from {
     transform: translateY(0);
@@ -90,9 +77,13 @@ a,
   }
 }
 
-.bounce {
-  animation-name: bounce;
-  animation-timing-function: linear;
 
-  transform-origin: bottom left;
+@keyframes color-change {
+  0% {
+    background-color: rgb(37, 195, 219);
+  }
+
+  100% {
+    background-color: rgb(19, 52, 105);
+  }
 }

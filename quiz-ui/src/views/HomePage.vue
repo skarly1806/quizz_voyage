@@ -26,7 +26,7 @@
 
   <div class="wrapperHome" style="left: 34%;
   top: 25%;">
-    <a class="cta" href="#" style="left:-750px;top:-250px;">
+    <a class="cta" href="#" style="left:-100px;top:-250px;">
       <span @click="launchNewQuiz">Commencer !</span>
       <span @click="launchNewQuiz">
         <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg"

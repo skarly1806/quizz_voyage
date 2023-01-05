@@ -15,7 +15,7 @@
   <div class="img_quest">
     <QuestionDisplay :question="currentQuestion" @click-on-answer="answerClickedHandler" />
   </div>
-  <img class="fit-picture" src="../assets/logo_quest.png" size="">
+
 
   <div v-if="currentQuestionPosition == totalNumberOfQuestion" class="wrapper">
     <a class="cta" href="#" style="top:-1000%;left:18%;">
@@ -109,8 +109,6 @@ export default {
     this.currentQuestion = questionByPosition.data;
     var totalQuestion = await quizApiService.getQuizInfo();
     this.totalNumberOfQuestion = totalQuestion.data.size;
-
-
   }
 };
 </script>
