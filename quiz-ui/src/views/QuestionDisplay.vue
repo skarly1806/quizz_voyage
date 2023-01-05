@@ -2,23 +2,26 @@
 </script>
 
 <template>
+  <div class="questionBorder">
+    <img class="rounded mx-auto d-block" v-if="question.image" :src="question.image" style="top:70px;left:0px;" />
 
-  <img class="rounded mx-auto d-block" v-if="question.image" :src="question.image" />
-  <div class="question">
-    <div class="questionBadge">{{ question.title }}</div>
-    <div class="questionText">{{ question.text }}</div>
-    <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 0)">{{
-      question.possibleAnswers[0].text
-    }}</a></div>
-    <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 1)">{{
-      question.possibleAnswers[1].text
-    }}</a></div>
-    <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 2)">{{
-      question.possibleAnswers[2].text
-    }}</a></div>
-    <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 3)">{{
-      question.possibleAnswers[3].text
-    }}</a></div>
+    <div class="question">
+
+      <div class="questionBadge">{{ question.title }}</div>
+      <div class="questionText">{{ question.text }}</div>
+      <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 0)">{{
+        question.possibleAnswers[0].text
+      }}</a></div>
+      <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 1)">{{
+        question.possibleAnswers[1].text
+      }}</a></div>
+      <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 2)">{{
+        question.possibleAnswers[2].text
+      }}</a></div>
+      <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 3)">{{
+        question.possibleAnswers[3].text
+      }}</a></div>
+    </div>
   </div>
 
 </template>
@@ -65,8 +68,8 @@ export default {
   padding: 10px;
   width: 500px;
   height: 75px;
-  top: -40px;
-  right: 20px;
+  top: -105px;
+  right: 232px;
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
@@ -81,9 +84,9 @@ export default {
 .questionBadge {
   display: inline-block;
   padding: 10px;
-  top: -380px;
+  top: -435px;
   width: 500px;
-  right: 20px;
+  right: 232px;
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
@@ -100,8 +103,8 @@ export default {
   padding: 10px;
   width: 500px;
   height: 40px;
-  top: -40px;
-  right: 20px;
+  top: -87px;
+  right: 233px;
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
