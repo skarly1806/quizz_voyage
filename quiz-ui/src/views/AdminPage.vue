@@ -5,6 +5,7 @@
 
   <p>AdminPage</p>
   <div v-if="token">
+
     <div style="top:75%;left:-15%;">
       <p class="formulaireQuest" style="left:-250px;">Chargez une image :</p>
       <ImageUpload @file-change="imageFileChangedHandler" />
@@ -16,8 +17,6 @@
       <input type="text" v-model="questionText" />
       <p class="formulaireQuest"> Saisissez la position :</p>
       <input type="text" v-model="questionPosition" />
-
-
 
 
       <p class="formulaireQuest"> Saisissez les réponses :</p>
@@ -35,9 +34,6 @@
       <button @click="loginAgain">Login</button>
     </div>
   </div>
-
-
-
 </template>
 
 <script>
@@ -55,7 +51,7 @@ export default {
       passwordInput: "",
       questionTitle: "",
       questionText: "",
-      questionPosition: "",
+      questionPosition: 0,
       questionImage: "",
       answer1: "",
       answer2: "",

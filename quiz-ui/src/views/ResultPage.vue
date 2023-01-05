@@ -63,7 +63,9 @@ export default {
     },
     message() {
       if (this.score == 10) {
+
         return "bravo champion !"
+
       }
       else if (this.score > 7) {
         return "peut mieux faire"

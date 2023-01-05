@@ -3,13 +3,13 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white header">
+  <nav class="fond navbar navbar-expand-lg navbar-light bg-white header">
     <div class="navbar-collapse">
       <div class="nav" style="right:-10px;">
         <RouterLink to="/">Accueil</RouterLink>
       </div>
 
-      <ul class="collapse navbar-collapse justify-content-end">
+      <ul class="fond collapse navbar-collapse justify-content-end">
         <div class="nav" style="top:10px;right:10px;">
           <RouterLink to="/AdminPage">Admin</RouterLink>
         </div>
@@ -31,13 +31,14 @@ nav {
   margin-bottom: 20px;
   height: 35px;
   font-family: 'Poppins', sans-serif;
+
 }
 
 .login_inp {
   right: 10%;
 }
 
-.login_text {}
+
 
 .login {
   margin-left: 525px;
