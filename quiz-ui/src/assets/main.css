@@ -77,6 +77,15 @@ a,
   }
 }
 
+@keyframes bounce2 {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-200px);
+  }
+}
 
 @keyframes color-change {
   0% {
@@ -85,5 +94,15 @@ a,
 
   100% {
     background-color: rgb(19, 52, 105);
+  }
+}
+
+@keyframes travel {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(+2000px);
   }
 }

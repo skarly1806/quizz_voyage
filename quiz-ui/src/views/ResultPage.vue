@@ -2,11 +2,14 @@
 </script>
  
 <template>
+
+
+
   <div>
-    <img src="/src/assets/logo.png" alt="logo" style="top:70%;">
+    <img src="/src/assets/logo.png" alt="logo" style="top:70%;left:300px;">
   </div>
 
-  <div class="borderScore" style="animation:bounce 2s linear infinite alternate-reverse;">
+  <div class="borderScore" style="animation:bounce 2s linear infinite alternate-reverse;left:-195px;">
     <p class="textScore">Voici votre score <br><u>{{ player }}</u> : <font color="red">{{ score }}</font><br> {{ text }}
     </p>
   </div>
@@ -36,6 +39,10 @@
 
   {{ resultats }}
 
+  <div>
+    <img src="/src/assets/alien.png"
+      style="top:10%;left:-1500px;height:100px;width:100px;animation:bounce2 3s linear infinite alternate-reverse,travel 25s linear infinite">
+  </div>
 </template>
 
 <script>
