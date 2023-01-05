@@ -63,7 +63,7 @@ export default {
     },
     message() {
       if (this.score == 10) {
-        return "bravo bon toutou"
+        return "bravo champion"
       }
       else if (this.score > 7) {
         return "peut mieux faire"
@@ -74,6 +74,7 @@ export default {
       else {
         return "la honte"
       }
+      participationStorageService.clear();
     },
   },
   async created() {

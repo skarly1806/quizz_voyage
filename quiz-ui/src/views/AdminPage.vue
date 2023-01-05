@@ -9,6 +9,8 @@
     <input type="text" v-model="questionTitle" />
     <p class="quest"> Saisissez votre questionText :</p>
     <input type="text" v-model="questionText" />
+    <p class="quest"> Saisissez votre questionPosition :</p>
+    <input type="number" v-model="questionPosition" />
     <ImageUpload @file-change="imageFileChangedHandler" />
     <p class="quest"> Saisissez vos possibleAnswers :</p>
     <input type="text" v-model="answer1" /> <input type="radio" id="rep1" name="boolrep" />
@@ -44,7 +46,7 @@ export default {
       passwordInput: "",
       questionTitle: "",
       questionText: "",
-      questionPosition: "",
+      questionPosition: 0,
       questionImage: "",
       answer1: "",
       answer2: "",
@@ -62,11 +64,25 @@ export default {
   methods: {
     async loginAgain() {
       var login_result = await quizApiService.login(this.passwordInput);
-      participationStorageService.saveToken(login_result.data.token);
-      this.token = await participationStorageService.getToken();
+      //participationStorageService.saveToken(login_result.data.token);
+      //this.token = await participationStorageService.getToken();
     },
     imageFileChangedHandler(b64String) {
       this.questionImage = b64String;
+    },
+    reloadtrue() {
+      this.questionTitle = "";
+      this.questionText = "";
+      this.questionPosition = 0;
+      this.questionImage = "";
+      this.answer1 = "";
+      this.answer2 = "";
+      this.answer3 = "";
+      this.answer4 = "";
+      this.answer1verif = false;
+      this.answer2erif = false;
+      this.answer3verif = false;
+      this.answer4verif = false;
     },
     async PushQuestion() {
       const radioButtons = document.querySelectorAll('input[name="boolrep"]');
@@ -77,7 +93,7 @@ export default {
       } else if (radioButtons[2].checked) {
         this.answer3verif = true;
       } else if (radioButtons[3].checked) {
-        this.answer3verif = true;
+        this.answer4verif = true;
       }
       this.possibleAnswers = [{ "text": this.answer1, "isCorrect": this.answer1verif },
       { "text": this.answer2, "isCorrect": this.answer2verif },
@@ -91,6 +107,7 @@ export default {
       console.log(question);
       console.log(this.boolrep);
       await quizApiService.addQuestion(question, this.token);
+      reloadtrue();
     },
   },
   components: { ImageUpload },
