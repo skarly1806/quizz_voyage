@@ -17,7 +17,7 @@
   </div>
 
 
-  <div v-if="currentQuestionPosition == totalNumberOfQuestion" class="wrapper">
+  <div v-if="this.list.length == totalNumberOfQuestion" class="wrapper">
     <a class="cta" href="#" style="top:-1000%;left:18%;">
       <span @click="endQuiz">Résultat !</span>
       <span @click="endQuiz">
@@ -72,18 +72,16 @@ export default {
     async answerClickedHandler(value) {
       if (this.currentQuestionPosition + 1 <= this.totalNumberOfQuestion) {
         this.list.push(value);
-        console.log(list);
         this.currentQuestionPosition = await this.currentQuestionPosition + 1;
         this.currentQuestion = await this.loadQuestionByPosition(this.currentQuestionPosition);
       }
 
-      if (this.currentQuestionPosition == this.totalNumberOfQuestion + 1) {
+      else if (this.currentQuestionPosition == this.totalNumberOfQuestion) {
         if (this.lastQuestion == 0) {
           this.list.push(value);
           this.lastQuestion = 1;
         }
       }
-
     },
     async loadQuestionByPosition(currentQuestionPosition) {
       var questionByPosition = await quizApiService.getQuestionByPos(this.currentQuestionPosition);
@@ -91,7 +89,6 @@ export default {
     },
     async endQuiz() {
       if (this.list.length == this.currentQuestionPosition) {
-        console.log("endquiz");
         // const storelist = JSON.stringify(this.list);
         participationStorageService.saveList(this.list);
         const playerName = participationStorageService.getPlayerName();
