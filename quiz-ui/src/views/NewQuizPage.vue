@@ -6,7 +6,10 @@
     <div style="animation:bounce 4s linear infinite alternate-reverse;top:10px;">
       <!-- <img src="/src/assets/banner.png" alt="logo" style="top:220px;"> -->
       <img src="/src/assets/logo.png" alt="logo" style="top:220px;left:10%;">
-      <p v-if="errorname" style="left: 65%;">Veuillez saisir un nom d'utilisateur</p>
+      <p v-if="errorname" class="error">Veuillez saisir un nom
+        de
+        joueur !</p>
+
       <p class="name"> Saisissez votre nom :</p>
       <input class="inp" v-model="username" />
       <div class="wrapper" style="left: 34%;
@@ -71,6 +74,15 @@ export default {
 </script>
 
 <style>
+.error {
+  top: 245px;
+  left: 40%;
+  font-family: 'Poppins', sans-serif;
+  color: red;
+  animation: color-change2 0.1s linear infinite alternate-reverse;
+}
+
+
 .quest {
   margin-left: 525px;
   left: 15%;
@@ -81,7 +93,7 @@ export default {
   width: 400px;
   margin-left: 525px;
   left: 2%;
-  margin-top: 12%;
+  margin-top: 11%;
   font-size: 35px;
   text-align: center;
   font-family: 'Poppins', sans-serif;

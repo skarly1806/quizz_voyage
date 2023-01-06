@@ -6,30 +6,62 @@
   <p>AdminPage</p>
   <div v-if="token">
 
-    <button @click="listQuestion" style="top:60px;left:-75px;width:150px;height:40px;">Liste des questions</button>
-
-    <div style="top:80%;left:-15%;">
-      <p class="formulaireQuest" style="left:-250px;">Chargez une image :</p>
-      <ImageUpload @file-change="imageFileChangedHandler" />
-    </div>
-    <div class="formulaire">
+    <div class="formulaire" style="top:100px;">
       <p class="formulaireQuest"> Saisissez le titre de la question :</p>
-      <input type="text" v-model="questionTitle" />
+      <input class="inputAdmin" type="text" v-model="questionTitle" style="width:300px;left:100px;" />
       <p class="formulaireQuest"> Saisissez la question :</p>
-      <input type="text" v-model="questionText" />
+      <input type="text" v-model="questionText" style="width:300px;left:100px;" />
 
 
       <p class="formulaireQuest"> Saisissez les réponses (cochez la bonne réponse):</p>
-      <input type="text" v-model="answer1" /> <input type="radio" id="rep1" name="boolrep" style="left:800px;" />
-      <input type="text" v-model="answer2" /> <input type="radio" id="rep2" name="boolrep" style="left:800px;" />
-      <input type="text" v-model="answer3" /> <input type="radio" id="rep3" name="boolrep" style="left:800px;" />
-      <input type="text" v-model="answer4" /> <input type="radio" id="rep4" name="boolrep" style="left:800px;" />
+      <table>
+        <tbody>
+          <tr>
+            <td><input type="text" v-model="answer1" style="width:300px;left:100px;" /></td>
+            <td><input type="radio" id="rep1" name="boolrep" style="left:130px;top:-10px;" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" v-model="answer2" style="width:300px;left:100px;" /></td>
+            <td> <input type="radio" id="rep2" name="boolrep" style="left:130px;top:-10px;" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" v-model="answer3" style="width:300px;left:100px;" /></td>
+            <td><input type="radio" id="rep3" name="boolrep" style="left:130px;top:-10px;" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" v-model="answer4" style="width:300px;left:100px;" /></td>
+            <td><input type="radio" id="rep4" name="boolrep" style="left:130px;top:-10px;" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table style="left:160px;">
+        <tbody>
+          <tr>
+            <td>
+              <p class="formulaireQuest">Chargez une image :</p>
+            </td>
+            <td style="left:350px;top:-5px;">
+              <ImageUpload @file-change="imageFileChangedHandler" />
+            </td>
+          </tr>
+          <tr>
+            <td style="left:580px;top:-130px;"><button class="button-admin" @click="PushQuestion"
+                style="top:140px; left:-190px;background-color: #b0efb2;">Ajouter la question</button>
+            </td>
+            <td style="left:580px;top:-130px;"> <button class="button-admin" @click="listQuestion"
+                style="top:140px;left:-190px;width:190px;height:50px;">Liste des
+                questions</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
-    <button @click="PushQuestion" style="top:140px; left:-65px;">Ajouter la question</button>
+
   </div>
   <div v-else>
-    <div v-if="error == true">
+    <div class="error" style="top:380px;left:-100px" v-if="error == true">
       <p>mauvais mot de passe</p>
     </div>
     <div class="login" style="top:50%;left:-18%;">
@@ -144,8 +176,7 @@ export default {
 
 <style>
 .formulaire {
-  right: 700px;
-  top: 0%;
+  left: -83%;
 }
 
 .formulaireQuest {

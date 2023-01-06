@@ -44,6 +44,85 @@ a,
   }
 }
 
+.button-admin {
+  font-family: 'Poppins', sans-serif;
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-admin:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-admin:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.button-answer {
+  background-color: rgb(41, 177, 168);
+  border-radius: 4px;
+  border: 0;
+  box-shadow: rgba(1, 60, 136, .5) 0 -1px 3px 0 inset, rgba(0, 44, 97, .1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk", -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+  padding: 0.5em;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+  top: -15px;
+}
+
+.button-answer:hover {
+  background-color: rgb(57, 211, 201);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-answer {
+    width: 500px;
+    left: -10px;
+    height: 40px;
+
+  }
+}
+
+
 @keyframes nuage {
   from {
     transform: scale(1);
@@ -96,6 +175,17 @@ a,
     background-color: rgb(19, 52, 105);
   }
 }
+
+@keyframes color-change2 {
+  0% {
+    color: rgb(255, 0, 0);
+  }
+
+  100% {
+    color: rgb(255, 251, 0);
+  }
+}
+
 
 @keyframes travel {
   from {

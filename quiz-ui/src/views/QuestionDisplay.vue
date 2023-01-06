@@ -9,18 +9,18 @@
 
       <div class="questionBadge">{{ question.title }}</div>
       <div class="questionText">{{ question.text }}</div>
-      <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 0)">{{
+      <div class="answerBloc"><button class="answerText, button-answer" @click="$emit('click-on-answer', 0)">{{
         question.possibleAnswers[0].text
-      }}</a></div>
-      <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 1)">{{
+      }}</button></div>
+      <div class="answerBloc"><button class="answerText, button-answer" @click="$emit('click-on-answer', 1)">{{
         question.possibleAnswers[1].text
-      }}</a></div>
-      <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 2)">{{
+      }}</button></div>
+      <div class="answerBloc"><button class="answerText, button-answer" @click="$emit('click-on-answer', 2)">{{
         question.possibleAnswers[2].text
-      }}</a></div>
-      <div class="answerBloc"><a class="answerText" @click="$emit('click-on-answer', 3)">{{
+      }}</button></div>
+      <div class="answerBloc"><button class="answerText, button-answer" @click="$emit('click-on-answer', 3)">{{
         question.possibleAnswers[3].text
-      }}</a></div>
+      }}</button></div>
     </div>
   </div>
 
@@ -113,7 +113,7 @@ export default {
   text-align: center;
   vertical-align: middle;
   border-radius: 0.25rem;
-  border: thick double #32a1ce;
+  /* border: thick double #32a1ce; */
 }
 
 div[class*=box] {

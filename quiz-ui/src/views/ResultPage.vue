@@ -18,13 +18,13 @@
   <!-- <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
     liste result : {{ scoreEntry["playerName"] }} ::{{ scoreEntry["score"] }}
   </div> -->
-  <div id="table-wrapper" style="left:-5%;top:-73%;width:400px;">
+  <div id="table-wrapper" style="left:-10%;top:-73%;width:400px;">
     <div id="table-scroll" style="height:715px;">
       <table id="customers" class="relative" style=" top:-2%;left:10%;">
         <thead>
           <tr>
-            <th>Player Name</th>
-            <th>Score</th>
+            <th style="text-align:center;font-size:18px;">Player Name</th>
+            <th style="font-size:18px">Score</th>
           </tr>
         </thead>
         <tbody>
