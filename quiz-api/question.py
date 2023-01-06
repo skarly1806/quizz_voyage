@@ -215,7 +215,6 @@ def getQuestionById(id):
         return 'Question not found',404
 
 def deleteQuestionByyId(questionId):
- 
     try:
         
         dbconnection = sqlite3.connect('database.db')
@@ -223,7 +222,7 @@ def deleteQuestionByyId(questionId):
 
         request = "select position from Question where id = "+str(questionId)
         cursor = dbconnection.execute(request)
-        
+
         for row in cursor:
             position = row[0]
         

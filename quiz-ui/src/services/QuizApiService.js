@@ -47,7 +47,7 @@ export default {
     return this.call("post", "questions", question, token);
   },
   deleteQuestion(id, token) {
-    return this.call("delete", "questions/" + id, token);
+    return this.call("delete", "questions/" + id, null, token);
   },
   postParticipation(part) {
     return this.call("post", "participations", part);

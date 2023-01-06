@@ -6,6 +6,7 @@
     <div style="animation:bounce 4s linear infinite alternate-reverse;top:10px;">
       <!-- <img src="/src/assets/banner.png" alt="logo" style="top:220px;"> -->
       <img src="/src/assets/logo.png" alt="logo" style="top:220px;left:10%;">
+      <p v-if="errorname" style="left: 65%;">Veuillez saisir un nom d'utilisateur</p>
       <p class="name"> Saisissez votre nom :</p>
       <input class="inp" v-model="username" />
       <div class="wrapper" style="left: 34%;
@@ -48,13 +49,18 @@ export default {
   data() {
     return {
       username: '',
+      errorname: false,
     };
   },
   methods: {
     launchNewQuiz() {
-      const player = this.username;
-      participationStorageService.savePlayerName(player);
-      this.$router.push('/QuestionsManager');
+      if (this.username != "") {
+        const player = this.username;
+        participationStorageService.savePlayerName(player);
+        this.$router.push('/QuestionsManager');
+      } else {
+        this.errorname = true;
+      }
     },
   },
   async created() {

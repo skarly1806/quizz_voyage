@@ -58,17 +58,16 @@ export default {
         possibleAnswers: ["", "", "", ""],
       },
       list: [],
-      idd: 1,
-
     };
   },
   methods: {
-    async deleteQuest(number) {
+    async deleteQuest(idd) {
       var tok = await participationStorageService.getToken();
-      await quizApiService.deleteQuestion(number, tok);
+      await quizApiService.deleteQuestion(idd, tok);
       console.log("delete");
       console.log(tok);
-      console.log(number);
+      console.log(idd);
+      this.$router.push('/ListQuestions');
     },
   },
   async created() {

@@ -29,6 +29,9 @@
     <button @click="PushQuestion" style="top:140px; left:-65px;">Ajouter la question</button>
   </div>
   <div v-else>
+    <div v-if="error == true">
+      <p>mauvais mot de passe</p>
+    </div>
     <div class="login" style="top:50%;left:-18%;">
       <input type="login_inp" v-model="passwordInput" />
       <button @click="loginAgain">Login</button>
@@ -61,6 +64,7 @@ export default {
       answer2verif: false,
       answer3verif: false,
       answer4verif: false,
+      error: false,
       boolrep: "",
       totalNumberOfQuestion: 0,
 
@@ -71,8 +75,13 @@ export default {
   methods: {
     async loginAgain() {
       var login_res = await quizApiService.login(this.passwordInput);
-      participationStorageService.saveToken(login_res.data.token);
-      this.token = await participationStorageService.getToken();
+      if (login_res) {
+        participationStorageService.saveToken(login_res.data.token);
+        this.token = await participationStorageService.getToken();
+      } else {
+        this.error = true;
+      }
+
     },
     imageFileChangedHandler(b64String) {
       this.questionImage = b64String;
