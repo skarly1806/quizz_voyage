@@ -63,15 +63,11 @@ export default {
     };
   },
   methods: {
-    async loginAgain() {
-      var login_result = await quizApiService.login(this.passwordInput);
-      participationStorageService.saveToken(login_result.data.token);
-      this.token = await participationStorageService.getToken();
-    },
     async deleteQuest(number) {
-      await quizApiService.deleteQuestion(number, this.token);
+      var tok = await participationStorageService.getToken();
+      await quizApiService.deleteQuestion(number, tok);
       console.log("delete");
-      console.log(this.token);
+      console.log(tok);
       console.log(number);
     },
   },

@@ -84,6 +84,7 @@ def deleteQuestion(questionId):
 
 	try: 
 		#verification token
+
 		decode_token(token[7:])
 
 		#suppression question 
