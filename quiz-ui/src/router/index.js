@@ -4,6 +4,7 @@ import NewQuizPage from '../views/NewQuizPage.vue'
 import QuestionsManager from '../views/QuestionsManager.vue'
 import ResultPage from '../views/ResultPage.vue'
 import AdminPage from '../views/AdminPage.vue'
+import ListQuestions from '../views/ListQuestions.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/AdminPage',
       name: 'AdminPage',
       component: AdminPage
+    },
+    {
+      path: '/ListQuestions',
+      name: 'ListQuestions',
+      component: ListQuestions
     },
     {
       path: '/about',

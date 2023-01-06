@@ -76,7 +76,7 @@ export default {
         this.currentQuestion = await this.loadQuestionByPosition(this.currentQuestionPosition);
       }
 
-      if (this.currentQuestionPosition == this.totalNumberOfQuestion) {
+      if (this.currentQuestionPosition == this.totalNumberOfQuestion + 1) {
         if (this.lastQuestion == 0) {
           this.list.push(value);
           this.lastQuestion = 1;

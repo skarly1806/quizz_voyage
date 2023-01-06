@@ -6,6 +6,8 @@
   <p>AdminPage</p>
   <div v-if="token">
 
+    <button @click="listQuestion">liste de questions</button>
+
     <div style="top:75%;left:-15%;">
       <p class="formulaireQuest" style="left:-250px;">Chargez une image :</p>
       <ImageUpload @file-change="imageFileChangedHandler" />
@@ -15,8 +17,6 @@
       <input type="text" v-model="questionTitle" />
       <p class="formulaireQuest"> Saisissez la question :</p>
       <input type="text" v-model="questionText" />
-      <p class="formulaireQuest"> Saisissez la position :</p>
-      <input type="text" v-model="questionPosition" />
 
 
       <p class="formulaireQuest"> Saisissez les réponses :</p>
@@ -62,6 +62,7 @@ export default {
       answer3verif: false,
       answer4verif: false,
       boolrep: "",
+      totalNumberOfQuestion: 0,
 
       possibleAnswers: [],
     };
@@ -74,6 +75,9 @@ export default {
     },
     imageFileChangedHandler(b64String) {
       this.questionImage = b64String;
+    },
+    listQuestion() {
+      this.$router.push('/ListQuestions');
     },
     reloadtrue() {
       this.questionTitle = "";
@@ -90,6 +94,7 @@ export default {
       this.answer4verif = false;
     },
     async PushQuestion() {
+      this.questionPosition = this.totalNumberOfQuestion + 1;
       const radioButtons = document.querySelectorAll('input[name="boolrep"]');
       if (radioButtons[0].checked) {
         this.answer1verif = true;
@@ -122,6 +127,8 @@ export default {
     var login_res = await quizApiService.login(password);
     participationStorageService.saveToken(login_res.data.token);
     this.token = await participationStorageService.getToken();
+    var totalQuestion = await quizApiService.getQuizInfo();
+    this.totalNumberOfQuestion = totalQuestion.data.size;
 
   }
 };
