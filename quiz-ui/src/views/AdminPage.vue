@@ -6,7 +6,7 @@
   <p>AdminPage</p>
   <div v-if="token">
 
-    <button @click="listQuestion">liste de questions</button>
+    <button @click="listQuestion" style="top:60px;left:-75px;width:150px;height:40px;">Liste des questions</button>
 
     <div style="top:75%;left:-15%;">
       <p class="formulaireQuest" style="left:-250px;">Chargez une image :</p>

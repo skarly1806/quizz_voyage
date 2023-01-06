@@ -5,7 +5,7 @@
 
   <p>Liste de questions</p>
 
-  <div v-if="token" id="table-wrapper" style="left:-30%;top:0%;width:1000px;">
+  <div v-if="token" id="table-wrapper" style="left:-14%;top:2%;width:1720px;">
     <div id="table-scroll" style="height:715px;">
       <table id="customers" class="relative" style=" top:-2%;left:10%;">
         <thead>
@@ -17,6 +17,7 @@
             <th>rep3</th>
             <th>rep4</th>
             <th>supprimer</th>
+            <th>test</th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
             <td>{{ unit["possibleAnswers"][2]["text"] }}</td>
             <td>{{ unit["possibleAnswers"][3]["text"] }}</td>
             <td><button @click="deleteQuest(unit.id)">supprimer</button></td>
+            <td>"............................"</td>
           </tr>
         </tbody>
       </table>
@@ -83,10 +85,10 @@ export default {
     },
   },
   async created() {
-    console.log("liste questions page");
+    console.log("list questions page");
     var totalQuestion = await quizApiService.getQuizInfo();
     this.totalNumberOfQuestion = totalQuestion.data.size;
-    for (let i = 1; i < this.totalNumberOfQuestion; i++) {
+    for (let i = 1; i < this.totalNumberOfQuestion + 1; i++) {
       var questionByPosition = await quizApiService.getQuestionByPos(i);
       this.currentQuestion = questionByPosition.data
       this.list.push(this.currentQuestion);
