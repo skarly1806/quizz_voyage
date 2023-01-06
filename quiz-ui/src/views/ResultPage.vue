@@ -18,7 +18,7 @@
   <!-- <div class="score" v-for="scoreEntry in registeredScores" v-bind:key="scoreEntry.date">
     liste result : {{ scoreEntry["playerName"] }} ::{{ scoreEntry["score"] }}
   </div> -->
-  <div id="table-wrapper" style="left:-10%;top:-73%;width:400px;">
+  <div id="table-wrapper" style="left:-5%;top:-73%;width:400px;">
     <div id="table-scroll" style="height:715px;">
       <table id="customers" class="relative" style=" top:-2%;left:10%;">
         <thead>
@@ -75,13 +75,13 @@ export default {
 
       }
       else if (this.score > 7) {
-        return "peut mieux faire"
+        return "pas trop mal"
       }
       else if (this.score < 8 && this.score > 4) {
-        return "ah ouais chaud :/"
+        return "ça aurait pu être beaucoup mieux"
       }
       else {
-        return "la honte"
+        return "il faut vraiment revoir tes bases"
       }
     },
   },

@@ -3,9 +3,8 @@
 
 <template>
 
-  <p>Liste de questions</p>
 
-  <div v-if="token" id="table-wrapper" style="left:-14%;top:2%;width:1720px;">
+  <div id="table-wrapper" style="left:-7%;top:2%;width:1600px;">
     <div id="table-scroll" style="height:715px;">
       <table id="customers" class="relative" style=" top:-2%;left:10%;">
         <thead>
@@ -21,25 +20,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="unit in list" :key="unit.id">
+          <tr v-for="unit in list" :key="unit.position">
             <td>{{ unit["title"] }}</td>
             <td>{{ unit["text"] }}</td>
             <td>{{ unit["possibleAnswers"][0]["text"] }}</td>
             <td>{{ unit["possibleAnswers"][1]["text"] }}</td>
             <td>{{ unit["possibleAnswers"][2]["text"] }}</td>
             <td>{{ unit["possibleAnswers"][3]["text"] }}</td>
-            <td><button @click="deleteQuest(unit.id)">supprimer</button></td>
+            <td><button @click="deleteQuest(unit.position)">supprimer</button></td>
             <td>"............................"</td>
           </tr>
         </tbody>
       </table>
-    </div>
-  </div>
-
-  <div v-else>
-    <div class="login" style="top:50%;left:-18%;">
-      <input type="login_inp" v-model="passwordInput" />
-      <button @click="loginAgain">Login</button>
     </div>
   </div>
 
@@ -76,12 +68,11 @@ export default {
       participationStorageService.saveToken(login_result.data.token);
       this.token = await participationStorageService.getToken();
     },
-    async deleteQuest(id) {
-      //this.idd = id;
-      await quizApiService.deleteQuestion(this.idd, this.token);
+    async deleteQuest(number) {
+      await quizApiService.deleteQuestion(number, this.token);
       console.log("delete");
       console.log(this.token);
-      console.log(this.idd);
+      console.log(number);
     },
   },
   async created() {

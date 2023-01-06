@@ -8,7 +8,7 @@
 
     <button @click="listQuestion" style="top:60px;left:-75px;width:150px;height:40px;">Liste des questions</button>
 
-    <div style="top:75%;left:-15%;">
+    <div style="top:80%;left:-15%;">
       <p class="formulaireQuest" style="left:-250px;">Chargez une image :</p>
       <ImageUpload @file-change="imageFileChangedHandler" />
     </div>
@@ -20,10 +20,10 @@
 
 
       <p class="formulaireQuest"> Saisissez les réponses :</p>
-      <input type="text" v-model="answer1" /> <input type="radio" id="rep1" name="boolrep" style="left:130px;" />
-      <input type="text" v-model="answer2" /> <input type="radio" id="rep2" name="boolrep" style="left:130px;" />
-      <input type="text" v-model="answer3" /> <input type="radio" id="rep3" name="boolrep" style="left:130px;" />
-      <input type="text" v-model="answer4" /> <input type="radio" id="rep4" name="boolrep" style="left:130px;" />
+      <input type="text" v-model="answer1" /> <input type="radio" id="rep1" name="boolrep" style="left:800px;" />
+      <input type="text" v-model="answer2" /> <input type="radio" id="rep2" name="boolrep" style="left:800px;" />
+      <input type="text" v-model="answer3" /> <input type="radio" id="rep3" name="boolrep" style="left:800px;" />
+      <input type="text" v-model="answer4" /> <input type="radio" id="rep4" name="boolrep" style="left:800px;" />
 
     </div>
     <button @click="PushQuestion" style="top:140px; left:-65px;">Ajouter la question</button>
