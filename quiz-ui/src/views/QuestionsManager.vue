@@ -72,6 +72,7 @@ export default {
     async answerClickedHandler(value) {
       if (this.currentQuestionPosition + 1 <= this.totalNumberOfQuestion) {
         this.list.push(value);
+        console.log(list);
         this.currentQuestionPosition = await this.currentQuestionPosition + 1;
         this.currentQuestion = await this.loadQuestionByPosition(this.currentQuestionPosition);
       }
@@ -90,6 +91,7 @@ export default {
     },
     async endQuiz() {
       if (this.list.length == this.currentQuestionPosition) {
+        console.log("endquiz");
         // const storelist = JSON.stringify(this.list);
         participationStorageService.saveList(this.list);
         const playerName = participationStorageService.getPlayerName();

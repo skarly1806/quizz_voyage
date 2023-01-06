@@ -16,7 +16,7 @@ import { RouterLink, RouterView } from 'vue-router'
       </ul>
 
       <ul>
-        <div class="nav" style="top:10px;left:950px;">
+        <div class="nav" style="top:10px;left:1050px;">
           <RouterLink to="/AdminPage">Admin</RouterLink>
         </div>
       </ul>
