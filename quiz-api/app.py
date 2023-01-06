@@ -39,6 +39,31 @@ def GetQuizInfo():
 	#return {"size": 0, "scores": [20,30,40]}, 200
 	return info,200
 
+@app.route('/rebuild-db', methods=['POST'])
+
+def databaseConstructionHome():
+    try:
+        dbconnection = sqlite3.connect('database.db')
+        cursor = dbconnection.cursor()
+
+        request = """CREATE TABLE "Question" ("id" INTEGER NOT NULL,"title" TEXT,"text" TEXT,position NUMERIC,"image" NUMERIC,PRIMARY KEY("id"))"""
+        request1 = """CREATE TABLE "Answer" ("text" TEXT,"id" INTEGER,"isCorrect" INTEGER)"""
+        request2 = """CREATE TABLE "Participation" ("playerName" TEXT,"score" NUMERIC,"id" INTEGER NOT NULL,PRIMARY KEY("id"))"""
+        cursor.execute(request)
+        cursor.execute(request1)
+        cursor.execute(request2)
+
+        dbconnection.commit()
+        dbconnection.close()
+        return "Ok",200
+
+    except sqlite3.Error as e:
+    # If an error occurred, print the error message
+        print(f"An error occurred: {e.args[0]}")
+        cursor.execute('rollback')
+        return {"error" : e.args[0]}, 500
+
+
 @app.route('/login', methods=['POST'])
 def login():
 	payload = request.get_json()	
