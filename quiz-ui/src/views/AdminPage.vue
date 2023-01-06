@@ -65,12 +65,13 @@ export default {
       totalNumberOfQuestion: 0,
 
       possibleAnswers: [],
+      id: 0,
     };
   },
   methods: {
     async loginAgain() {
-      var login_result = await quizApiService.login(this.passwordInput);
-      participationStorageService.saveToken(login_result.data.token);
+      var login_res = await quizApiService.login(this.passwordInput);
+      participationStorageService.saveToken(login_res.data.token);
       this.token = await participationStorageService.getToken();
     },
     imageFileChangedHandler(b64String) {
@@ -123,10 +124,7 @@ export default {
   components: { ImageUpload },
   async created() {
     console.log("admin page");
-    var password = await participationStorageService.getPassword();
-    var login_res = await quizApiService.login(password);
-    participationStorageService.saveToken(login_res.data.token);
-    this.token = await participationStorageService.getToken();
+
     var totalQuestion = await quizApiService.getQuizInfo();
     this.totalNumberOfQuestion = totalQuestion.data.size;
 
