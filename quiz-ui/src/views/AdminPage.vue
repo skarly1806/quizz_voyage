@@ -19,7 +19,7 @@
       <input type="text" v-model="questionText" />
 
 
-      <p class="formulaireQuest"> Saisissez les réponses :</p>
+      <p class="formulaireQuest"> Saisissez les réponses (cochez la bonne réponse):</p>
       <input type="text" v-model="answer1" /> <input type="radio" id="rep1" name="boolrep" style="left:800px;" />
       <input type="text" v-model="answer2" /> <input type="radio" id="rep2" name="boolrep" style="left:800px;" />
       <input type="text" v-model="answer3" /> <input type="radio" id="rep3" name="boolrep" style="left:800px;" />
