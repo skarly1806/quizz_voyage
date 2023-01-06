@@ -5,7 +5,7 @@
   <div style="width:1600px;height:900px;animation:color-change 10s linear infinite alternate-reverse;">
     <div style="animation:bounce 4s linear infinite alternate-reverse;top:10px;">
       <!-- <img src="/src/assets/banner.png" alt="logo" style="top:220px;"> -->
-      <img src="/src/assets/logo.png" alt="logo" style="top:220px;left:10%;">
+      <img src="../assets/logo.png" alt="logo" style="top:220px;left:10%;">
       <p v-if="errorname" class="error">Veuillez saisir un nom
         de
         joueur !</p>

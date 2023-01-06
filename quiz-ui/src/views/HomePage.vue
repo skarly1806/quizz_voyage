@@ -80,7 +80,7 @@ export default {
 
 <style>
 .bg {
-  background-image: url(../src/assets/fond_site.png);
+  background-image: url("../assets/fondSite.png");
   background-size: cover;
   left: 70px;
   width: 1472px;
