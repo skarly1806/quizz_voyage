@@ -71,17 +71,17 @@ export default {
     message() {
       if (this.score == 10) {
 
-        return "bravo champion !"
+        return "parfait !"
 
       }
-      else if (this.score > 7) {
-        return "pas trop mal"
+      else if (this.score > 6) {
+        return "bravo champion !"
       }
-      else if (this.score < 8 && this.score > 4) {
-        return "ça aurait pu être beaucoup mieux"
+      else if (this.score < 7 && this.score > 4) {
+        return "tu peux faire mieux"
       }
       else {
-        return "il faut vraiment revoir tes bases"
+        return "aie aie aie"
       }
     },
   },

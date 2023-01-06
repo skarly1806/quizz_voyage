@@ -128,6 +128,7 @@ export default {
       console.log(this.boolrep);
       await quizApiService.addQuestion(question, this.token);
       this.reloadtrue();
+      this.$router.push('/ListQuestions');
     },
   },
   components: { ImageUpload },

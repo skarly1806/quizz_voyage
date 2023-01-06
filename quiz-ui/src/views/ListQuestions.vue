@@ -67,7 +67,7 @@ export default {
       console.log("delete");
       console.log(tok);
       console.log(idd);
-      this.$router.push('/ListQuestions');
+      location.reload()
     },
   },
   async created() {
