@@ -3,7 +3,7 @@
 
 <template>
 
-  <p>AdminPage</p>
+  <p></p>
   <div v-if="token">
 
     <div class="formulaire" style="top:100px;">
