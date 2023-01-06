@@ -89,7 +89,8 @@ def deleteQuestion(questionId):
 
 		#suppression question 
 		
-		a,status = deleteQuestionByyId(questionId)
+		# a,status = deleteQuestionByyId(questionId)
+		a,status = deleteQuestionByPosition(questionId)
 
 		return a,status
 	except:

@@ -470,3 +470,67 @@ def rightAnswer(position): #return correct answer by position
     dbconnection.close() 
 
     return answer 
+
+def deleteQuestionByPosition(pos):
+    try:
+        
+        dbconnection = sqlite3.connect('database.db')
+        dbconnection.isolation_level = None
+
+        request = "select id from Question where position = "+str(pos)
+        cursor = dbconnection.execute(request)
+
+        for row in cursor:
+            id = row[0]
+        
+        updatePositionWhenDelete(pos,id)
+        # deletePosition(position)
+
+        request2 = "delete from Question where id = "+str(id)
+        cursor = dbconnection.execute(request2)
+
+        request3 = "delete from Answer where id = "+str(id)
+        cursor = dbconnection.execute(request3)
+
+        dbconnection.commit()
+        dbconnection.close()
+        return "Question deleted",204
+    except:
+        return "Couldn't delete question",404
+
+def updatePositionWhenDelete(position,questionId):
+    try:
+        position = int(position)
+        dbconnection = sqlite3.connect('database.db')
+        dbconnection.isolation_level = None
+
+        request = "select count(*) from question"
+        cursor = dbconnection.execute(request)
+
+        for row in cursor:
+            numberOfQuestion = row[0]
+
+        request = "select position from Question where id = "+str(questionId)
+        cursor = dbconnection.execute(request)
+
+        for row in cursor:
+            oldPosition = row[0]
+
+        for i in range(numberOfQuestion):
+            request = "select position from Question where id = "+str(i+1)
+            cursor = dbconnection.execute(request)
+
+            for row in cursor:
+                positionQ = row[0]
+            
+                if positionQ > position :
+                    newPositionQ = positionQ -1
+                    request = "update Question set position = "+str(newPositionQ)+" where position <= "+str(positionQ)+" and id = "+str(i+1)
+                    cursor = dbconnection.execute(request)
+                
+        dbconnection.commit()
+        dbconnection.close()  
+
+        return 1
+    except:
+        return 0
