@@ -93,10 +93,10 @@ def getScores():
 
             
     
-        dbconnection.commit()
-        dbconnection.close()  
+    dbconnection.commit()
+    dbconnection.close()  
 
-        return scores
+    return scores
 
 def getLastScore():
         try:
