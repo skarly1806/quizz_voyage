@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
       <ul>
         <audio controls loop autoplay style="left:500px;top:15px;height:24px;">
-          <source src="/src/assets/Daft Punk - Around The World.mp3">
+          <source src="/src/assets/daft_punk.mp3">
         </audio>
       </ul>
 

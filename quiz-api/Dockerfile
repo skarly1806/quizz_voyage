@@ -23,8 +23,8 @@ ENV FLASK_APP=app.py
 COPY . .
 
 # Informations sur l'image
-LABEL maintainer="LEE YIP CHAN William <william.leeyipchan@edu.esiee.fr>" \
+LABEL maintainer="Nom Prénom <nom.prénom@esiee.fr>" \
     version="1.0"
 
 # Commande de démarrage du serveur gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app", "--log-level", "info", "--error-logfile", "-", "--access-logfile", "-"]``
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app", "--log-level", "info", "--error-logfile", "-", "--access-logfile", "-"]
