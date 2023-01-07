@@ -49,10 +49,10 @@ class Question():
         if positionIsTaken !=0:
             changePosition(position)
 
-        request = "insert into Question (title,text,position,image) values ('"+title+"','"+text+"','"+position+"','"+image+"')"
+        request = f"insert into Question (title,text,position,image) values ({title!r},{text!r},{position!r},{image!r})"
         cursor.execute(request)
 
-        request2="select id from Question where text = '"+text+"'"
+        request2=f"select id from Question where text = {text!r}"
         cursor.execute(request2)
 
         for row in cursor:
@@ -61,7 +61,7 @@ class Question():
         for answer in possibleAnswers :
             text = answer['text']
             isCorrect = answer['isCorrect']
-            request2 = "insert into Answer (text,id,isCorrect) values ('"+text+"','"+str(id)+"','"+str(isCorrect)+"')"
+            request2 = f"insert into Answer (text,id,isCorrect) values ({text!r},{id!r},'"+str(isCorrect)+"')"
             cursor.execute(request2)
 
         dbconnection.commit()
@@ -152,7 +152,7 @@ def getQuestionByyPosition(pos):
         return 'Question not found',404
 
 def str2bool(v):
-  return v.lower() in ("True", "true")
+  return v.lower() in ("True", "true","1")
 
 def getQuestionById(id):
     try:
@@ -251,10 +251,10 @@ def updateQuestionById(title,text,position,image,possibleAnswers,questionId):
         if positionIsTaken !=0:
             updatePosition(position,questionId)
 
-        request2 = "update Question set title = '"+title+"' where id = "+str(questionId)
+        request2 = f"update Question set title = {title!r} where id = "+str(questionId)
         cursor = dbconnection.execute(request2)
 
-        request3 = "update Question set text = '"+text+"' where id = "+str(questionId)
+        request3 = f"update Question set text = {text!r} where id = "+str(questionId)
         cursor = dbconnection.execute(request3)
    
         request4 = "update Question set position = "+str(position)+" where id = "+str(questionId)
@@ -269,7 +269,7 @@ def updateQuestionById(title,text,position,image,possibleAnswers,questionId):
         for Answer in possibleAnswers:
             textA = Answer['text']
             isCorrect = Answer['isCorrect']
-            request7 = "insert into Answer (text,id,isCorrect) values ('"+textA+"','"+str(questionId)+"','"+str(isCorrect)+"')"
+            request7 = f"insert into Answer (text,id,isCorrect) values ({textA!r},{questionId!r},'"+str(isCorrect)+"')"
             cursor = dbconnection.execute(request7)
 
 
